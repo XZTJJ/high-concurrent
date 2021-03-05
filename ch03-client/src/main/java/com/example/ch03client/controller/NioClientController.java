@@ -5,6 +5,7 @@ import com.example.ch03client.fileNio.FileNIOFastCopy;
 import com.example.ch03client.fileNio.MySleftFileNIO;
 import com.example.ch03client.tcpClient.MySelfTcpClientSocket;
 import com.example.ch03client.tcpClient.TcpClientSocketPro;
+import com.example.ch03client.udpClient.MySelfUDPClient;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -31,17 +32,25 @@ public class NioClientController {
     }
 
 
-    //自己手写的，用于上传文件到服务器目录的
+    //自己手写的，用于tcp上传文件到服务器目录的
     @RequestMapping("/mySelfTcpSocket")
     public void mySelfTcpSocket() {
         MySelfTcpClientSocket mySelfTcpClientSocket = SpringContextUtils.getBean(MySelfTcpClientSocket.class);
         mySelfTcpClientSocket.clientTcpSocket();
     }
 
-    //书上的，用于上传文件到服务器目录的
+    //书上的，用于tcp上传文件到服务器目录的
     @RequestMapping("/tcpClientSocketPro")
     public void tcpClientSocketPro() {
         TcpClientSocketPro tcpClientSocketPro = SpringContextUtils.getBean(TcpClientSocketPro.class);
         tcpClientSocketPro.tcpClientSend();
+    }
+
+    //自己的，用于udp上传文件到服务器目录的
+    @RequestMapping("/mySelfUDPClient")
+    public void mySelfUDPClient() {
+        MySelfUDPClient mySelfUDPClient = SpringContextUtils.getBean(MySelfUDPClient.class);
+        mySelfUDPClient.mySelfUDPClient();
+
     }
 }
