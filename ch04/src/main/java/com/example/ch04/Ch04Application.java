@@ -1,6 +1,6 @@
 package com.example.ch04;
 
-import com.example.ch04.SingleThread.utils.SpringContextUtils;
+import com.example.ch04.utils.SpringContextUtils;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;

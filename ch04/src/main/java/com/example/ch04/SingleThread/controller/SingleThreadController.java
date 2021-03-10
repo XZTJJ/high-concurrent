@@ -4,7 +4,7 @@ import com.example.ch04.SingleThread.client.ClientPro;
 import com.example.ch04.SingleThread.client.MySelfClient;
 import com.example.ch04.SingleThread.server.myself.MySelfReactor;
 import com.example.ch04.SingleThread.server.pro.ServerReactorPro;
-import com.example.ch04.SingleThread.utils.SpringContextUtils;
+import com.example.ch04.utils.SpringContextUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
