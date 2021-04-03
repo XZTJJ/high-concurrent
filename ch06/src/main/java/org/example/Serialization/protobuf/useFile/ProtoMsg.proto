@@ -1,0 +1,31 @@
+//有两种方式转成java文件，第一个是控制台方式，第二种是maven插件形式，第二种方式始终用不了
+//定义版本
+syntax = "proto3";
+//定义包名，这个包和java中的包名不是同一个，这个更像时命名空间
+package org.example.Serialization.protobuf;
+//定义Java的包名,可以通过这个包名，解决名字重复的问题
+option java_package = "org.example.Serialization.protobuf";
+//定义生成的Java文件名，也就会Java的类名
+option java_outer_classname = "ProtoMsg";
+//定义结构体，在java中会以内部类的形式存在上面的  java_outer_classname 外部内中，同时也是传输的主体
+message Msg{
+  //定义字段的一般形式为 type fileName = UniqueOrder
+  uint32 version = 1;
+  uint32 fversion = 2;
+  //定义嵌套的内部复杂结构，比如message , 这里定义一个enum , 嵌套内部类 的 UniqueOrder 可以和外边重复
+  enum MagicEnum {
+    PROUDCT = 0;
+    DEVPLOP = 1;
+  }
+  //定义一个其他的复杂的结构, 复用上面的枚举类型
+  message Magic{
+    //魔数说明
+    string desc = 1;
+    //类型
+    MagicEnum magicEnum = 2;
+  }
+  //必选的使用定义的类型，不然定义了没有用处
+  Magic magic = 3;
+  //其他结构
+  string content = 4;
+}
